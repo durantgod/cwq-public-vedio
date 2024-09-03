@@ -1,5 +1,9 @@
 28181视频服务器，直播推拉流服务器
 
+先上效果图：
+![](https://wqknowledge.oss-cn-shenzhen.aliyuncs.com/blog/vedioxg1.png)
+![](https://wqknowledge.oss-cn-shenzhen.aliyuncs.com/blog/vedioxg2.png)
+
 ### 1、CWQ-PUBLIC-VEDIO是一个流媒体服务的管理端
  github地址：https://github.com/chenweiquan-red/cwq-public-vedio.git
  
