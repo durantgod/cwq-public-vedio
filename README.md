@@ -1,135 +1,543 @@
-![logo](doc/_media/logo.png)
-# 开箱即用的28181协议视频平台
+28181视频服务器，直播推拉流服务器
 
-[![Build Status](https://travis-ci.org/xia-chu/ZLMediaKit.svg?branch=master)](https://travis-ci.org/xia-chu/ZLMediaKit)
-[![license](http://img.shields.io/badge/license-MIT-green.svg)](https://github.com/xia-chu/ZLMediaKit/blob/master/LICENSE)
-[![JAVA](https://img.shields.io/badge/language-java-red.svg)](https://en.cppreference.com/)
-[![platform](https://img.shields.io/badge/platform-linux%20|%20macos%20|%20windows-blue.svg)](https://github.com/xia-chu/ZLMediaKit)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-yellow.svg)](https://github.com/xia-chu/ZLMediaKit/pulls)
+### 1、CWQ-PUBLIC-VEDIO是一个流媒体服务的管理端
+ github地址：https://github.com/chenweiquan-red/cwq-public-vedio.git
+ 
+ fork from : https://gitee.com/pan648540858/wvp-GB28181-pro.git
 
+完整的application.yaml：
 
-WEB VIDEO PLATFORM是一个基于GB28181-2016标准实现的开箱即用的网络视频平台，负责实现核心信令与设备管理后台部分，支持NAT穿透，支持海康、大华、宇视等品牌的IPC、NVR接入。支持国标级联，支持将不带国标功能的摄像机/直播流/直播推流转发到其他国标平台。   
-
-流媒体服务基于@夏楚 ZLMediaKit [https://github.com/ZLMediaKit/ZLMediaKit](https://github.com/ZLMediaKit/ZLMediaKit)   
-播放器使用@dexter jessibuca [https://github.com/langhuihui/jessibuca/tree/v3](https://github.com/langhuihui/jessibuca/tree/v3)  
-前端页面基于@Kyle MediaServerUI [https://gitee.com/kkkkk5G/MediaServerUI](https://gitee.com/kkkkk5G/MediaServerUI) 进行修改.  
-
-# 应用场景：
-支持浏览器无插件播放摄像头视频。
-支持国标设备(摄像机、平台、NVR等)设备接入
-支持非国标(onvif, rtsp, rtmp，直播设备等等)设备接入，充分利旧。 
-支持国标级联。多平台级联。跨网视频预览。
-支持跨网网闸平台互联。
-
-
-# 文档
-wvp使用文档 [https://doc.wvp-pro.cn](https://doc.wvp-pro.cn)  
-ZLM使用文档 [https://github.com/ZLMediaKit/ZLMediaKit](https://github.com/ZLMediaKit/ZLMediaKit)
-> wvp文档由gitee提供服务，如果遇到打不开请多刷新几次。
-
-# 付费社群
-[![社群](doc/_media/shequ.png "shequ")](https://t.zsxq.com/0d8VAD3Dm)
-> 收费是为了提供更好的服务，也是对作者更大的激励。加入星球的用户三天后可以私信我留下微信号，我会拉大家入群。加入三天内不满意可以直接退款，大家不需要有顾虑，来白嫖三天也不是不可以。
-
-# gitee同步仓库
-https://gitee.com/pan648540858/wvp-GB28181-pro.git
-
-# 截图
-![index](doc/_media/index.png "index.png")
-![2](doc/_media/2.png "2.png")
-![3](doc/_media/3.png "3.png")
-![3-1](doc/_media/3-1.png "3-1.png")
-![3-2](doc/_media/3-2.png "3-2.png")
-![3-3](doc/_media/3-3.png "3-3.png")
-![build_1](https://images.gitee.com/uploads/images/2022/0304/101919_ee5b8c79_1018729.png "2022-03-04_10-13.png")
-
-# 功能特性 
-- [X] 集成web界面
-- [X] 兼容性良好
-- [X] 支持电子地图，支持接入WGS84和GCJ02两种坐标系，并且自动转化为合适的坐标系进行展示和分发
-- [X] 接入设备
-  - [X] 视频预览
-  - [X] 无限制接入路数，能接入多少设备只取决于你的服务器性能
-  - [X] 云台控制，控制设备转向，拉近，拉远
-  - [X] 预置位查询，使用与设置
-  - [X] 查询NVR/IPC上的录像与播放，支持指定时间播放与下载
-  - [X] 无人观看自动断流，节省流量
-  - [X] 视频设备信息同步
-  - [X] 离在线监控
-  - [X] 支持直接输出RTSP、RTMP、HTTP-FLV、Websocket-FLV、HLS多种协议流地址
-  - [X] 支持通过一个流地址直接观看摄像头，无需登录以及调用任何接口
-  - [X] 支持UDP和TCP两种国标信令传输模式
-  - [X] 支持UDP和TCP两种国标流传输模式
-  - [X] 支持检索,通道筛选
-  - [X] 支持通道子目录查询
-  - [X] 支持过滤音频，防止杂音影响观看
-  - [X] 支持国标网络校时
-  - [X] 支持播放H264和H265
-  - [X] 报警信息处理，支持向前端推送报警信息
-  - [X] 支持订阅与通知方法
-    - [X] 移动位置订阅
-    - [X] 移动位置通知处理
-    - [X] 报警事件订阅
-    - [X] 报警事件通知处理
-    - [X] 设备目录订阅
-    - [X] 设备目录通知处理
-  -  [X] 移动位置查询和显示
-  - [X] 支持手动添加设备和给设备设置单独的密码
--  [X] 支持平台对接接入
--  [X] 支持国标级联
-  - [X] 国标通道向上级联
-    - [X] WEB添加上级平台
-    - [X] 注册
-    - [X] 心跳保活
-    - [X] 通道选择
-    - [X] 通道推送
-    - [X] 点播
-    - [X] 云台控制
-    - [X] 平台状态查询
-    - [X] 平台信息查询
-    - [X] 平台远程启动
-    - [X] 每个级联平台可自定义的虚拟目录
-    - [X] 目录订阅与通知
-    - [X] 录像查看与播放
-    - [X] GPS订阅与通知（直播推流）
-- [X] 支持自动配置ZLM媒体服务, 减少因配置问题所出现的问题;  
-- [X] 多流媒体节点，自动选择负载最低的节点使用。
-- [X] 支持启用udp多端口模式, 提高udp模式下媒体传输性能;
-- [X] 支持公网部署； 
-- [X] 支持wvp与zlm分开部署，提升平台并发能力
-- [X] 支持拉流RTSP/RTMP，分发为各种流格式，或者推送到其他国标平台
-- [X] 支持推流RTSP/RTMP，分发为各种流格式，或者推送到其他国标平台
-- [X] 支持推流鉴权
-- [X] 支持接口鉴权
-- [X] 云端录像，推流/代理/国标视频均可以录制在云端服务器，支持预览和下载
-- [X] 支持打包可执行jar和war
-- [X] 支持跨域请求，支持前后端分离部署
-- [X] 支持Mysql，Postgresql，金仓等数据库
-- [X] 支持Onvif(目前在onvif分支，需要安装onvif服务，服务请在知识星球获取)
-
-# 非开源的内容
-- [X] ONVIF设备的接入，支持点播，云台控制，国标级联点播，自动点播。在[知识星球](https://t.zsxq.com/10WAnH2MP)放了试用安装包以及使用教程，没有使用时间限制，需要源码可以星球私信我或者邮箱联系。
+```editorconfig
+spring:
+  # 设置接口超时时间
+  mvc:
+    async:
+      request-timeout: 20000
+  # [可选]上传文件大小限制
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+  # REDIS数据库配置
+  redis:
+    # [必须修改] Redis服务器IP, REDIS安装在本机的,使用192.168.10.250
+    host: 192.168.10.252
+    # [必须修改] 端口号
+    port: 6379
+    # [可选] 数据库 DB
+    database: 4
+    # [可选] 访问密码,若你的redis服务器没有设置密码，就不需要用密码去连接
+    password: hhd@redis23.com
+    # [可选] 超时时间
+    timeout: 10000
+    # [可选] 一个pool最多可分配多少个jedis实例
+    poolMaxTotal: 1000
+    # [可选] 一个pool最多有多少个状态为idle(空闲)的jedis实例
+    poolMaxIdle: 500
+    # [可选] 最大的等待时间(秒)
+    poolMaxWait: 5
+  # [必选] jdbc数据库配置
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.10.252:3306/wvp?useUnicode=true&characterEncoding=UTF8&rewriteBatchedStatements=true&serverTimezone=PRC&useSSL=false&allowMultiQueries=true
+    username: root
+    password: hhd@2023
+    hikari:
+      connection-timeout: 20000             # 是客户端等待连接池连接的最大毫秒数
+      initialSize: 10                       # 连接池初始化连接数
+      maximum-pool-size: 200                # 连接池最大连接数
+      minimum-idle: 5                       # 连接池最小空闲连接数
+      idle-timeout: 300000                  # 允许连接在连接池中空闲的最长时间（以毫秒为单位）
+      max-lifetime: 1200000                 # 是池中连接关闭后的最长生命周期（以毫秒为单位)
 
 
-# 授权协议
-本项目自有代码使用宽松的MIT协议，在保留版权信息的情况下可以自由应用于各自商用、非商业的项目。 但是本项目也零碎的使用了一些其他的开源代码，在商用的情况下请自行替代或剔除； 由于使用本项目而产生的商业纠纷或侵权行为一概与本项目及开发者无关，请自行承担法律风险。 在使用本项目代码时，也应该在授权协议中同时表明本项目依赖的第三方库的协议
+# 修改分页插件为 postgresql， 数据库类型为mysql不需要
+#pagehelper:
+#    helper-dialect: postgresql
 
-# 技术支持  
+# [可选] WVP监听的HTTP端口, 网页和接口调用都是这个端口
+server:
+  port: 18080
+  # [可选] HTTPS配置， 默认不开启
+  ssl:
+    # [可选] 是否开启HTTPS访问
+    enabled: false
+    # [可选] 证书文件路径，放置在resource/目录下即可，修改xxx为文件名
+    key-store: classpath:xxx.jks
+    # [可选] 证书密码
+    key-store-password: password
+    # [可选] 证书类型， 默认为jks，根据实际修改
+    key-store-type: JKS
+    # 配置证书可以使用如下两项，如上面二选一即可
+    # PEM 编码证书
+    certificate: xx.pem
+    #   私钥文件
+    certificate-private-key: xx.key
 
-[知识星球](https://t.zsxq.com/0d8VAD3Dm)专栏列表：
-- [使用入门系列一：WVP-PRO能做什么](https://t.zsxq.com/0dLguVoSp)
+# 作为28181服务器的配置
+sip:
+  # [必须修改] 本机的IP，对应你的网卡，监听什么ip就是使用什么网卡，
+  # 如果要监听多张网卡，可以使用逗号分隔多个IP， 例如： 192.168.1.4,10.0.0.4
+  # 如果不明白，就使用0.0.0.0，大部分情况都是可以的
+  # 请不要使用192.168.10.43，任何包括localhost在内的域名都是不可以的。
+  ip: 192.168.10.250
+  # [可选] 没有任何业务需求，仅仅是在前端展示的时候用
+  show-ip: 0.0.0.0
+  # [可选] 28181服务监听的端口
+  port: 5060
+  # 根据国标6.1.2中规定，domain宜采用ID统一编码的前十位编码。国标附录D中定义前8位为中心编码（由省级、市级、区级、基层编号组成，参照GB/T 2260-2007）
+  # 后两位为行业编码，定义参照附录D.3
+  # 3701020049标识山东济南历下区 信息行业接入
+  # [可选]
+  domain: 4401020049
+  # [可选]
+  id: 44010200492000000001
+  # [可选] 默认设备认证密码，后续扩展使用设备单独密码, 移除密码将不进行校验
+  password: admin123
+  # [可选] 国标级联注册失败，再次发起注册的时间间隔。 默认60秒
+  register-time-interval: 60
+  # [可选] 云台控制速度
+  ptz-speed: 50
+  # TODO [可选] 收到心跳后自动上线， 重启服务后会将所有设备置为离线，默认false，等待注册后上线。设置为true则收到心跳设置为上线。
+  # keepalliveToOnline: false
+  # 是否存储alarm信息
+  alarm: false
 
-有偿技术支持，请发送邮件到648540858@qq.com
+# 做为JT1078服务器的配置
+jt1078:
+  #[必须修改] 是否开启1078的服务
+  enable: true
+  #[必修修改] 1708设备接入的端口
+  port: 21078
+  #[可选] 设备鉴权的密码
+  password: admin123
 
-# 致谢
-感谢作者[夏楚](https://github.com/xia-chu) 提供这么棒的开源流媒体服务框架,并在开发过程中给予支持与帮助。     
-感谢作者[dexter langhuihui](https://github.com/langhuihui) 开源这么好用的WEB播放器。     
-感谢作者[Kyle](https://gitee.com/kkkkk5G) 开源了好用的前端页面     
-感谢各位大佬的赞助以及对项目的指正与帮助。包括但不限于代码贡献、问题反馈、资金捐赠等各种方式的支持！以下排名不分先后：  
-[lawrencehj](https://github.com/lawrencehj) [Smallwhitepig](https://github.com/Smallwhitepig) [swwhaha](https://github.com/swwheihei) 
-[hotcoffie](https://github.com/hotcoffie) [xiaomu](https://github.com/nikmu) [TristingChen](https://github.com/TristingChen)
-[chenparty](https://github.com/chenparty) [Hotleave](https://github.com/hotleave) [ydwxb](https://github.com/ydwxb)
-[ydpd](https://github.com/ydpd) [szy833](https://github.com/szy833) [ydwxb](https://github.com/ydwxb) [Albertzhu666](https://github.com/Albertzhu666)
-[mk1990](https://github.com/mk1990) [SaltFish001](https://github.com/SaltFish001)
+#zlm 默认服务器配置
+media:
+  # [必须修改] zlm服务器唯一id，用于触发hook时区别是哪台服务器,general.mediaServerId
+  id: 035c73f7bb6b
+  # [必须修改] zlm服务器的内网IP
+  ip: 192.168.10.250
+  # [可选] 返回流地址时的ip，置空使用 media.ip
+  stream-ip:
+  # [可选] wvp在国标信令中使用的ip，此ip为摄像机可以访问到的ip， 置空使用 media.ip
+  sdp-ip: 192.168.10.250
+  # [可选] zlm服务器的hook所使用的IP, 默认使用sip.ip
+  hook-ip: 192.168.10.250
+  # [必须修改] zlm服务器的http.port
+  http-port: 8001
+  # [可选] zlm服务器的http.sslport, 置空使用zlm配置文件配置
+  http-ssl-port:
+  # [可选] zlm服务器的rtmp.port, 置空使用zlm配置文件配置
+  rtmp-port:
+  # [可选] zlm服务器的rtmp.sslport, 置空使用zlm配置文件配置
+  rtmp-ssl-port:
+  # [可选] zlm服务器的 rtp_proxy.port, 置空使用zlm配置文件配置
+  rtp-proxy-port:
+  # [可选] zlm服务器的 rtsp.port, 置空使用zlm配置文件配置
+  rtsp-port:
+  # [可选] zlm服务器的 rtsp.sslport, 置空使用zlm配置文件配置
+  rtsp-ssl-port:
+  # [可选] 是否自动配置ZLM, 如果希望手动配置ZLM, 可以设为false, 不建议新接触的用户修改
+  auto-config: false
+  # [可选] zlm服务器的hook.admin_params=secret
+  secret: l5DPpqy3YbPE5oaJCL2AxOBOuAVwEvlG
+  # 启用多端口模式, 多端口模式使用端口区分每路流，兼容性更好。 单端口使用流的ssrc区分， 点播超时建议使用多端口测试
+  rtp:
+    # [可选] 是否启用多端口模式, 开启后会在portRange范围内选择端口用于媒体流传输
+    enable: true
+    # [可选] 在此范围内选择端口用于媒体流传输, 必须提前在zlm上配置该属性，不然自动配置此属性可能不成功
+    port-range: 50000,50050 # 端口范围
+    # [可选] 国标级联在此范围内选择端口发送媒体流，请不要与收流端口范围重合
+    send-port-range: 50502,50506 # 端口范围
+  # 录像辅助服务， 部署此服务可以实现zlm录像的管理与下载， 0 表示不使用
+  record-assist-port: 18081
+
+# [可选] 日志配置, 一般不需要改
+logging:
+  config: classpath:logback-spring-local.xml
+
+# [根据业务需求配置]
+user-settings:
+  # [可选] 服务ID，不写则为000000
+  server-id: 000000
+  # [可选] 自动点播， 使用固定流地址进行播放时，如果未点播则自动进行点播, 需要rtp.enable=true
+  auto-apply-play: true
+  # [可选] 部分设备需要扩展SDP，需要打开此设置
+  senior-sdp: false
+  # 保存移动位置历史轨迹：true:保留历史数据，false:仅保留最后的位置(默认)
+  save-position-history: false
+  # 点播/录像回放 等待超时时间,单位：毫秒
+  play-timeout: 24000
+  # 上级点播等待超时时间,单位：毫秒
+  platform-play-timeout: 120000
+  # 是否开启接口鉴权
+  interface-authentication: false
+  # 接口鉴权例外的接口, 即不进行接口鉴权的接口,尽量详细书写，尽量不用/**，至少两级目录
+  interface-authentication-excludes:
+    - /api/v1/**
+  # 推流直播是否录制
+  record-push-live: false
+  # 等待音视频编码信息再返回， true： 可以根据编码选择合适的播放器，false： 可以更快点播
+  wait-track: false
+  # 国标是否录制
+  record-sip: false
+  # 是否将日志存储进数据库
+  logInDatabase: false
+  # 使用推流状态作为推流通道状态
+  use-pushing-as-status: true
+  # 使用来源请求ip作为streamIp,当且仅当你只有zlm节点它与wvp在一起的情况下开启
+  use-source-ip-as-stream-ip: false
+  # 国标点播 按需拉流, true：有人观看拉流，无人观看释放， false：拉起后不自动释放
+  stream-on-demand: false
+  # 推流鉴权， 默认开启
+  push-authority: false
+  # 设备上线时是否自动同步通道
+  sync-channel-on-device-online: false
+  # 是否使用设备来源Ip作为回复IP， 不设置则为 false
+  sip-use-source-ip-as-remote-address: false
+  # 是否开启sip日志
+  sip-log: true
+  # 是否开启sql日志
+  sql-log: false
+  # 消息通道功能-缺少国标ID是否给所有上级发送消息
+  send-to-platforms-when-id-lost: true
+  # 保持通道状态，不接受notify通道状态变化， 兼容海康平台发送错误消息
+  refuse-channel-status-channel-form-notify: false
+  # 设置notify缓存队列最大长度，超过此长度的数据将返回486 BUSY_HERE，消息丢弃, 默认10000
+  max-notify-count-queue: 10000
+  # 设备/通道状态变化时发送消息
+  device-status-notify: false
+  # 上级平台点播时不使用上级平台指定的ssrc，使用自定义的ssrc，参考国标文档-点播外域设备媒体流SSRC处理方式
+  use-custom-ssrc-for-parent-invite: true
+  # 国标级联离线后多久重试一次注册
+  register-again-after-time: 60
+  # 国标续订方式，true为续订，每次注册在同一个会话里，false为重新注册，每次使用新的会话
+  register-keep-int-dialog: false
+  # 跨域配置，配置你访问前端页面的地址即可， 可以配置多个
+  allowed-origins:
+    - http://localhost:8008
+    - http://127.0.0.1:8001
+    - http://192.168.10.43:8080
+    - http://192.168.10.250:8080
+    - http://192.168.10.250:8008
+    - http://192.168.10.43:8008
+    - http://192.168.10.250:8001
+    - http://192.168.10.250:18080
+    - http://192.168.10.43:18080
+
+# 关闭在线文档（生产环境建议关闭）
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+```
+
+注意的信息点：
+```editorconfig
+1、这个配置相当于zlm流媒体服务器的账号密码，是要和流媒体服务器配置的信息一致
+而且流媒体服务器的配置信息中还有IP白名单，也需要加上当前IP
+media:
+    id: 035c73f7bb6b
+    secret: l5DPpqy3YbPE5oaJCL2AxOBOuAVwEvlG
 
 
+2、SIP是填服务端地址，注意区分服务端和流媒体服务器端的区别，如果两者不在同一台服务器中就要区分好
+
+```
+
+
+
+### 2、CWQ-VEDIO-WEB是流媒体服务管理端的前端界面
+1、注意点是配置文件：\web_src\config下面有
+dev.env.js  dev 本地运行时使用的配置
+index.js    本地运行时使用，换为服务端：18080端口
+prod.env.js BASE_API: '"/28181api"' 配置的是代理地址，走nginx时的配置
+
+index.js 配置如下：
+```editorconfig
+'use strict'
+// see http://vuejs-templates.github.io/webpack for documentation.
+
+const path = require('path')
+
+module.exports = {
+  dev: {
+
+    // Paths
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
+    proxyTable: {
+      '/debug': {
+        target: 'http://192.168.10.43:18080',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/debug': '/'
+        }
+      },
+      '/static/snap': {
+        target: 'http://192.168.10.43:18080',
+        changeOrigin: true,
+        // pathRewrite: {
+        //   '^/static/snap': '/static/snap'
+        // }
+      },
+
+    },
+
+    // Various Dev Server settings
+    host:"192.168.10.43",
+    useLocalIp: false, // can be overwritten by process.env.HOST
+    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    autoOpenBrowser: false,
+    errorOverlay: true,
+    notifyOnErrors: true,
+    hot: true,//自动保存
+    poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
+    
+    // https://webpack.js.org/configuration/devtool/#development
+    devtool: 'cheap-module-eval-source-map',
+
+    // https://vue-loader.vuejs.org/en/options.html#cachebusting
+    cacheBusting: true,
+    cssSourceMap: true
+  },
+
+  build: {
+    // Template for index.html
+    index: path.resolve(__dirname, '../../src/main/resources/static/index.html'),
+
+    // Paths
+    assetsRoot: path.resolve(__dirname, '../../src/main/resources/static/'),
+    assetsSubDirectory: './static',
+    assetsPublicPath: '/',
+    
+    productionSourceMap: true,
+    // https://webpack.js.org/configuration/devtool/#production
+    devtool: '#source-map',
+    
+    productionGzip: false,
+    productionGzipExtensions: ['js', 'css'],
+    
+    bundleAnalyzerReport: process.env.npm_config_report
+  }
+}
+
+```
+
+### 3、流媒体服务器搭建（docker）
+为了避免不同版本带来的影响，镜像重新打包放到个人仓库上。
+
+```shell
+docker pull registry.cn-shenzhen.aliyuncs.com/sz_public/public:zlmediakit-master
+docker run -id -p 1935:1935 -p 1935:1935/udp -p 554:554 -p 8000:8000 -p 8001:8001 -p 18081:18081 -p 10000:10000 -p 10000:10000/udp -p 50000-50050:50000-50050  -p 50000-50050:50000-50050/udp -v /usr/local/28181/config.ini:/opt/media/conf/config.ini registry.cn-shenzhen.aliyuncs.com/sz_public/public:zlmediakit-master
+```
+
+config.ini 如下(注意secret/ip白名单/开放端口等)：
+```editorconfig
+; auto-generated by mINI class {
+
+[api]
+apiDebug=0
+defaultSnap=./www/logo.png
+downloadRoot=./www
+secret=l5DPpqy3YbPE5oaJCL2AxOBOuAVwEvlG
+snapRoot=./www/snap/
+
+[cluster]
+origin_url=
+retry_count=3
+timeout_sec=15
+
+[ffmpeg]
+bin=/usr/bin/ffmpeg
+cmd=%s -fflags nobuffer -i %s -c:a aac -strict -2 -ar 44100 -ab 48k -c:v libx264  -f flv %s
+log=./ffmpeg/ffmpeg.log
+restart_sec=0
+snap=%s -i %s -y -f mjpeg -t 0.001 %s
+
+[general]
+addMuteAudio=1
+check_nvidia_dev=1
+continue_push_ms=3000
+enableVhost=0
+enable_audio=1
+enable_ffmpeg_log=0
+flowThreshold=1024
+fmp4_demand=0
+hls_demand=0
+maxStreamWaitMS=15000
+mediaServerId=035c73f7bb6b
+mergeWriteMS=0
+modifyStamp=0
+publishToHls=1
+publishToMP4=0
+resetWhenRePlay=1
+rtmp_demand=0
+rtsp_demand=0
+streamNoneReaderDelayMS=10000
+ts_demand=0
+unready_frame_cache=100
+wait_add_track_ms=3000
+wait_track_ready_ms=3000
+
+[hls]
+broadcastRecordTs=0
+deleteDelaySec=0
+fastRegister=0
+fileBufSize=65536
+filePath=./www
+segDur=2
+segKeep=0
+segNum=3
+segRetain=5
+
+[hook]
+admin_params=secret=035c73f7-bb6b-4889-a715-d9eb2d1925cc
+alive_interval=10.0
+enable=1
+on_flow_report=
+on_http_access=
+on_play=http://192.168.10.250:18080/index/hook/on_play
+on_publish=http://192.168.10.250:18080/index/hook/on_publish
+on_record_mp4=http://192.168.10.250:18080/api/record/on_record_mp4
+on_record_ts=
+on_rtp_server_timeout=
+on_rtsp_auth=
+on_rtsp_realm=
+on_send_rtp_stopped=
+on_server_exited=
+on_server_keepalive=http://192.168.10.250:18080/index/hook/on_server_keepalive
+on_server_started=http://192.168.10.250:18080/index/hook/on_server_started
+on_shell_login=http://192.168.10.250:18080/index/hook/on_shell_login
+on_stream_changed=http://192.168.10.250:18080/index/hook/on_stream_changed
+on_stream_none_reader=http://192.168.10.250:18080/index/hook/on_stream_none_reader
+on_stream_not_found=http://192.168.10.250:18080/index/hook/on_stream_not_found
+retry=1
+retry_delay=3.000000
+stream_changed_schemas=rtsp/rtmp/fmp4/ts/hls/hls.fmp4
+timeoutSec=20
+
+[http]
+allow_cross_domains=1
+allow_ip_range=::1,127.0.0.1,172.16.0.0-172.31.255.255,192.168.0.0-192.168.255.255,10.0.0.0-10.255.255.255
+charSet=utf-8
+dirMenu=1
+forbidCacheSuffix=
+forwarded_ip_header=
+keepAliveSecond=30
+maxReqSize=40960
+notFound=<html><head><title>404 Not Found</title></head><body bgcolor="white"><center><h1>您访问的资源不存在！</h1></center><hr><center>ZLMediaKit(git hash:a3d696d,branch:master,build time:Feb 23 2022 12:29:13)</center></body></html>
+port=8001
+rootPath=./www
+sendBufSize=65536
+sslport=443
+virtualPath=
+
+[multicast]
+addrMax=239.255.255.255
+addrMin=239.0.0.0
+udpTTL=64
+
+[protocol]
+add_mute_audio=1
+auto_close=0
+continue_push_ms=15000
+enable_audio=1
+enable_fmp4=1
+enable_hls=1
+enable_hls_fmp4=0
+enable_mp4=0
+enable_rtmp=1
+enable_rtsp=1
+enable_ts=1
+fmp4_demand=0
+hls_demand=0
+hls_save_path=./www
+modify_stamp=2
+mp4_as_player=0
+mp4_max_second=3600
+mp4_save_path=./www
+paced_sender_ms=0
+rtmp_demand=0
+rtsp_demand=0
+ts_demand=0
+
+[record]
+appName=record
+fastStart=0
+fileBufSize=65536
+filePath=./www
+fileRepeat=0
+fileSecond=3600
+sampleMS=500
+
+[rtc]
+externIP=
+max_bitrate=0
+min_bitrate=0
+port=8000
+preferredCodecA=PCMU,PCMA,opus,mpeg4-generic
+preferredCodecV=H264,H265,AV1X,VP9,VP8
+rembBitRate=0
+start_bitrate=0
+tcpPort=0
+timeoutSec=15
+
+[rtmp]
+directProxy=1
+enhanced=0
+handshakeSecond=15
+keepAliveSecond=15
+modifyStamp=0
+port=1935
+sslport=0
+
+[rtp]
+audioMtuSize=600
+h264_stap_a=1
+lowLatency=0
+rtpMaxSize=10
+videoMtuSize=1400
+
+[rtp_proxy]
+dumpDir=
+gop_cache=1
+h264_pt=98
+h265_pt=99
+opus_pt=100
+port=10000
+port_range=50000-50050
+ps_pt=96
+timeoutSec=15
+
+[rtsp]
+authBasic=0
+directProxy=1
+handshakeSecond=15
+keepAliveSecond=15
+lowLatency=0
+port=554
+rtpTransportType=-1
+sslport=0
+
+[shell]
+maxReqSize=1024
+port=0
+
+[srt]
+latencyMul=4
+pktBufSize=8192
+port=9000
+timeoutSec=5
+
+; } ---
+```
+
+最后贴上流程图：
+![](https://wqknowledge.oss-cn-shenzhen.aliyuncs.com/blog/vedio.png)
+
+具体使用配置：
+![](https://wqknowledge.oss-cn-shenzhen.aliyuncs.com/blog/vedio2.png)
